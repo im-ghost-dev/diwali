@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#1b1233">
+<title>Happy Deepawali from GHOST</title>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#120a22;overflow:hidden;overscroll-behavior:none}
+body{touch-action:none;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+#s{position:fixed;inset:0;width:100%;height:100%;animation:in 3.5s ease both}
+@keyframes in{from{opacity:0;filter:brightness(.3)}to{opacity:1;filter:none}}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+h1{position:fixed;left:0;right:0;top:max(6vh,env(safe-area-inset-top));z-index:3;pointer-events:none;text-align:center;font-family:'Yatra One',Georgia,serif;font-weight:400;line-height:1.15;font-size:clamp(28px,7.6vw,64px);color:#ffc65a;text-shadow:0 0 24px rgba(255,150,40,.55),0 2px 10px rgba(10,5,25,.7)}
+h1 .l{display:block}
+h1 .l2{color:#fff1d2;font-size:.62em;margin-top:.3em}
+h1 .l span[style]{display:inline-block;opacity:0;filter:blur(14px);transform:translateY(14px) scale(1.15);}
+h1.show .l span[style]{animation:rise 1.6s cubic-bezier(.2,.6,.2,1) forwards;animation-delay:calc(var(--i)*.16s)}
+h1 .sp{display:inline-block;width:.3em}
+@keyframes rise{to{opacity:1;filter:blur(0);transform:none}}
+
+#dim{transition:opacity 1.2s}
+.glow{opacity:0;transition:opacity 1.2s;pointer-events:none}
+.on .glow{opacity:1}
+.fl{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);transition:transform .8s cubic-bezier(.3,1.5,.5,1);pointer-events:none}
+.on .fl{transform:scale(1);animation:flick 1.2s ease-in-out .8s infinite alternate}
+@keyframes flick{from{transform:scale(1,1) skewX(0)}to{transform:scale(.9,1.1) skewX(4deg)}}
+.pulse{fill:none;stroke:#ffd27a;stroke-width:1.6;transform-box:fill-box;transform-origin:50% 50%;animation:pl 1.8s ease-out infinite;pointer-events:none}
+@keyframes pl{0%{transform:scale(.55);opacity:.95}100%{transform:scale(1.35);opacity:0}}
+.pulse{display:none}
+.st1 .diya:not(.on) .pulse,.st2 .ck:not(.burn):not(.done) .pulse{display:inline}
+.diya,.ck{pointer-events:none}
+.st1 .diya,.st2 .ck{pointer-events:auto}
+.ck{opacity:.4;transition:opacity 1.4s}
+.st2 .ck{opacity:1}
+.ck.done{opacity:.55!important}
+.done .sp{display:none}
+.sp{fill:#ffcf5a;animation:bl .35s steps(2) infinite}
+@keyframes bl{50%{opacity:.2}}
+.tw{animation:tw 2.2s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.2}to{opacity:1}}
+.hit{fill:transparent;cursor:pointer}
+.ck .b{transition:opacity .4s}
+.ck.gone .b{opacity:0}
+.ck.burn .b{animation:sh .07s linear infinite}
+@keyframes sh{from{transform:translate(-.7px,0)}to{transform:translate(.7px,-.4px)}}
+@media (prefers-reduced-motion:reduce){
+  h1 .l span[style]{animation-duration:.3s;animation-delay:0s;filter:none}
+  .pulse,.tw,.sp,.on .fl{animation:none}
+}
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 400 800" preserveAspectRatio="xMidYMax slice" aria-label="A decorated house courtyard at night with diyas and firecrackers">
+<defs>
+  <linearGradient id="sky" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="800"><stop offset="0" stop-color="#1b1233"/><stop offset=".3" stop-color="#4a2c58"/><stop offset=".5" stop-color="#9a6a6a"/></linearGradient>
+  <linearGradient id="flr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a6a52"/><stop offset="1" stop-color="#5a4334"/></linearGradient>
+  <radialGradient id="gl"><stop offset="0" stop-color="#ffc060" stop-opacity=".75"/><stop offset="1" stop-color="#ffa030" stop-opacity="0"/></radialGradient>
+  <pattern id="bars" width="8" height="10" patternUnits="userSpaceOnUse"><rect width="3" height="10" fill="#241009"/></pattern>
+  <clipPath id="fc"><rect x="-600" y="600" width="1600" height="900"/></clipPath>
+</defs>
+<g id="cam"><rect x="-600" y="-800" width="1600" height="1700" fill="url(#sky)"/>
+<g id="house">
+  <g fill="#b3957a" stroke="#8c6e57" stroke-width="1.5">
+    <rect x="120" y="150" width="160" height="42"/><rect x="80" y="190" width="240" height="42"/>
+    <rect x="40" y="230" width="320" height="47"/><rect x="-600" y="275" width="1600" height="62"/>
+  </g>
+  <rect x="120" y="164" width="160" height="14" fill="#6e3a30"/>
+  <g fill="#6d5968" id="arch"></g>
+  <rect x="-600" y="335" width="1600" height="265" fill="#c8a888"/>
+  <rect x="-600" y="468" width="1600" height="16" fill="#dcc5a7"/>
+  <rect x="-600" y="560" width="1600" height="40" fill="#6b2b24"/>
+  <g id="wins"></g>
+  <rect x="168" y="346" width="64" height="122" fill="#3a1c16"/><rect x="176" y="356" width="48" height="112" fill="#ffdcae"/>
+  <polygon points="176,356 190,362 190,468 176,468" fill="#2b130f"/><polygon points="224,356 210,362 210,468 224,468" fill="#2b130f"/>
+  <rect x="160" y="498" width="80" height="102" fill="#3a1c16"/><rect x="170" y="512" width="60" height="88" fill="#ffdcae"/>
+  <polygon points="170,512 188,518 188,600 170,600" fill="#2b130f"/><polygon points="230,512 212,518 212,600 230,600" fill="#2b130f"/>
+  <rect x="14" y="428" width="372" height="6" fill="#2a120f"/><rect x="14" y="434" width="372" height="30" fill="url(#bars)"/><rect x="14" y="464" width="372" height="6" fill="#2a120f"/>
+  <g fill="none" stroke="#f5a05a" stroke-width="9" stroke-dasharray="0 8" stroke-linecap="round"><path d="M164 500H236M161 500V562M239 500V562"/></g>
+  <g id="lights"></g>
+</g>
+<g id="fl"><rect x="-600" y="600" width="1600" height="900" fill="url(#flr)"/></g>
+<rect x="112" y="600" width="176" height="12" fill="#52413b"/><rect x="92" y="612" width="216" height="13" fill="#3d302c"/>
+<rect id="dim" x="-600" y="-800" width="1600" height="1700" fill="#0a0618" opacity=".42" pointer-events="none"/>
+<g id="items"></g>
+</g>
+</svg>
+<canvas id="c"></canvas>
+<h1 id="t" aria-label="Happy Deepawali from GHOST"></h1>
+
+<script>
+const NS='http://www.w3.org/2000/svg',$=id=>document.getElementById(id);
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p&&p.appendChild(e);return e};
+const vib=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
+let stage=0,spentN=0;
+function spent(){if(++spentN===4)setTimeout(finale,400)}
+
+// Title
+let n=0;
+$('t').innerHTML=[['HAPPY DEEPAWALI','l1'],['FROM GHOST','l2']].map(([t,c])=>
+ `<span class="l ${c}" aria-hidden="true">${[...t].map(ch=>ch===' '?'<span class="sp"></span>':`<span style="--i:${n++}">${ch}</span>`).join('')}</span>`).join('');
+
+// Scene: arches, windows, lights, floor, rangoli
+[20,55,90,288,323,358].forEach(x=>el('path',{d:`M${x} 322h22v-14a11 11 0 0 0-22 0z`},$('arch')));
+[[44,362,80],[304,362,80],[44,512,54],[304,512,54]].forEach(([x,y,h])=>{
+  el('rect',{x:x-4,y:y-4,width:60,height:h+8,fill:'#ead6b8'},$('wins'));
+  el('rect',{x,y,width:52,height:h,fill:'#ffd9a0'},$('wins'));
+  el('rect',{x,y,width:52,height:h,fill:'url(#bars)'},$('wins'));
+});
+["M0 328Q50 346 100 334T200 338T300 334T400 326","M14 424Q107 438 200 428T386 424","M0 275H40V230H80V190H120V150H280V190H320V230H360V275H400","M0 496Q40 508 100 500","M300 500Q360 508 400 496"].forEach((d,i)=>{
+  const o={d,fill:'none','stroke-dasharray':'0 11','stroke-linecap':'round'},L=$('lights');
+  el('path',{...o,stroke:'#ffd890','stroke-width':9,'stroke-opacity':.22},L);
+  el('path',{...o,stroke:'#ffeab8','stroke-width':4},L);
+  el('path',{...o,stroke:i%2?'#7fe3cc':'#ff9ec0','stroke-width':4,'stroke-dashoffset':-5.5,class:'tw'},L);
+});
+const F=$('fl'),FC=el('g',{'clip-path':'url(#fc)'},F);
+for(let k=1;k<22;k++){const y=600+Math.pow(k,1.7)*3.6;el('line',{x1:-600,x2:1000,y1:y,y2:y,stroke:'rgba(40,22,14,.35)','stroke-width':1+k*.15},FC)}
+for(let i=-16;i<=16;i++)el('line',{x1:200+i*22,y1:600,x2:200+i*454,y2:1400,stroke:'rgba(40,22,14,.3)','stroke-width':1.3},FC);
+const R=el('g',{transform:'translate(200 690) scale(1 .34)'},F);
+for(let i=0;i<12;i++)el('ellipse',{cy:-76,rx:13,ry:24,fill:i%2?'#f2a46a':'#f6c08a',transform:`rotate(${i*30})`},R);
+el('circle',{r:60,fill:'#f1d2b0'},R);
+el('circle',{r:60,fill:'none',stroke:'#d65a4a','stroke-width':7},R);
+el('circle',{r:50,fill:'none',stroke:'#fff4e0','stroke-width':3,'stroke-dasharray':'1 8','stroke-linecap':'round'},R);
+for(let i=0;i<16;i++)el('ellipse',{cy:-34,rx:6,ry:15,fill:i%2?'#e98a96':'#6f9e5c',transform:`rotate(${i*22.5})`},R);
+el('circle',{r:15,fill:'#f4b078'},R);el('circle',{r:7,fill:'#d65a4a'},R);
+
+// Diyas
+const items=$('items'),D=[];
+function diya(x,y,s){
+  const g=el('g',{transform:`translate(${x} ${y}) scale(${s})`},items),d={g,lit:0};
+  el('circle',{r:46,cy:-8,fill:'url(#gl)',class:'glow'},g);
+  el('circle',{r:19,cy:-4,class:'pulse',style:`animation-delay:-${(Math.random()*1.8).toFixed(2)}s`},g);
+  el('path',{d:'M-15 0Q0 22 15 0Z',fill:'#9c4220'},g);
+  el('ellipse',{rx:15,ry:5,fill:'#d9854a'},g);
+  el('ellipse',{rx:11,ry:3,cy:.6,fill:'#3d170a'},g);
+  const f=el('g',{class:'fl'},g);
+  el('path',{d:'M0 0C-7-8-4-17 0-26C4-17 7-8 0 0Z',fill:'#ffa43a'},f);
+  el('path',{d:'M0 0C-3-4-2-9 0-14C2-9 3-4 0 0Z',fill:'#fff0b0'},f);
+  el('circle',{r:32,cy:-8,class:'hit'},g);
+  g.classList.add('diya');g._d=d;D.push(d);
+  g.addEventListener('pointerdown',()=>light(d));
+}
+for(let i=0;i<9;i++){const a=(i*40+20)*Math.PI/180,x=200+Math.cos(a)*110,y=690+Math.sin(a)*34;diya(x,y,.85+(y-656)/68*.35)}
+[130,165,200,235,270].forEach(x=>diya(x,614,.55));
+function light(d){
+  if(d.lit||stage<1)return;d.lit=1;d.g.classList.add('on');vib([26,10,16]);tick();
+  const k=D.filter(x=>x.lit).length;$('dim').style.opacity=.42*(1-k/D.length);
+  if(k===D.length)setTimeout(()=>{stage=2;document.body.classList.add('st2')},500);
+}
+
+// Crackers
+function cracker(type,x,y,s){
+  const g=el('g',{transform:`translate(${x} ${y}) scale(${s})`,class:'ck'},items),b=el('g',{class:'b'},g);
+  el('circle',{r:26,cy:-20,class:'pulse',style:`animation-delay:-${(Math.random()*1.8).toFixed(2)}s`},g);
+  if(type==='anar'){
+    el('path',{d:'M-13 0L13 0L9-36L-9-36Z',fill:'#c23b2a'},b);
+    el('path',{d:'M-11.4-16L11.4-16L10.3-24L-10.3-24Z',fill:'#f2b233'},b);
+    el('ellipse',{cy:-36,rx:9,ry:2.6,fill:'#2a0f0a'},b);
+    el('path',{d:'M4-37Q8-46 14-44',stroke:'#6b4a2a','stroke-width':1.6,fill:'none'},b);
+    el('circle',{cx:14,cy:-44,r:2.6,class:'sp'},b);
+  }else{
+    el('line',{x1:0,y1:0,x2:0,y2:16,stroke:'#7a5530','stroke-width':2.2},b);
+    el('rect',{x:-6,y:-32,width:12,height:32,fill:'#d6452d'},b);
+    el('rect',{x:-6,y:-18,width:12,height:5,fill:'#f2b233'},b);
+    el('path',{d:'M-6-32L0-49L6-32Z',fill:'#2f7a62'},b);
+    el('path',{d:'M6-4Q11-3 12 3',stroke:'#6b4a2a','stroke-width':1.4,fill:'none'},b);
+    el('circle',{cx:12,cy:3,r:2.4,class:'sp'},b);
+  }
+  el('circle',{r:32,cy:-20,class:'hit'},g);
+  let busy=0;
+  g.addEventListener('pointerdown',()=>{
+    if(busy||stage<2)return;busy=1;g.classList.add('burn');vib([30,10,20]);
+    const r=g.getBoundingClientRect(),cx=r.left+r.width/2;
+    if(type==='anar'){
+      noise(1.8,'highpass',3500,.12,.6);crackle(16,1600);
+      let t=0;const iv=setInterval(()=>{
+        const ty=r.top+3;
+        for(let i=0;i<6;i++)P.push({x:cx,y:ty,vx:(Math.random()-.5)*2.4,vy:-(4+Math.random()*3.5),life:.9,dec:.022,g:.13,c:cols[Math.random()*2|0]});
+        if(++t%4===0)vib(14);
+        if(t>100){clearInterval(iv);g.classList.remove('burn');g.classList.add('done');spent()}
+      },16);
+    }else{
+      setTimeout(()=>{g.classList.add('gone');rocket(cx+(Math.random()-.5)*80,innerHeight*(.12+Math.random()*.28),cx,r.top);vib([18,8,18])},250);
+      setTimeout(()=>{g.classList.remove('burn');g.classList.add('done');spent()},1100);
+    }
+  });
+}
+cracker('anar',55,778,1.1);cracker('rocket',135,772,1.15);cracker('rocket',265,772,1.15);cracker('anar',345,778,1.1);
+
+// Audio
+let ac;
+function noise(dur,type,freq,vol,pw){
+  try{
+    ac=ac||new(window.AudioContext||window.webkitAudioContext)();ac.resume&&ac.resume();
+    const len=ac.sampleRate*dur,buf=ac.createBuffer(1,len,ac.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,pw);
+    const s=ac.createBufferSource();s.buffer=buf;
+    const f=ac.createBiquadFilter();f.type=type;f.frequency.value=freq;
+    const g=ac.createGain();g.gain.value=vol;
+    s.connect(f);f.connect(g);g.connect(ac.destination);s.start();
+  }catch(e){}
+}
+const boom=()=>noise(.6,'lowpass',500,.5,3),tick=()=>noise(.08,'highpass',2500,.15,2);
+
+// Fireworks
+const cv=$('c'),x=cv.getContext('2d');let W,H;
+function fit(){const r=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*r;cv.height=H*r;x.setTransform(r,0,0,r,0,0)}
+fit();addEventListener('resize',fit);
+const cols=[[255,200,90],[255,243,214],[255,170,130],[240,110,150],[255,140,40]];
+const P=[],RK=[];
+function rocket(tx,ty,sx,sy,big,q){RK.push({x:sx??tx+(Math.random()-.5)*50,y:sy??H+10,ty,tx,big,q})}
+function burst(px,py,big,q){
+  const c=cols[Math.random()*cols.length|0],c2=cols[Math.random()*cols.length|0],ring=Math.random()<.5,N=big?190:90,k=big?1.7:1;
+  for(let i=0;i<N;i++){
+    const a=Math.PI*2*i/N+Math.random()*.1,s=(ring?4:(1.2+Math.random()*4))*k;
+    P.push({x:px,y:py,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,dec:(.008+Math.random()*.008)*(big?.7:1),c:i%3?c:c2,big});
+  }
+  boom();if(!q)vib(big?[60,10,45,10,35,10,25,10,15,10,8]:[40,10,30,10,20,10,10]);if(big&&!q)crackle(10,700,0)
+}
+let lastS=0;
+function pop(){
+  const px=Math.random()*W,py=Math.random()*H*.85;
+  for(let i=0;i<8;i++){const a=Math.random()*6.28,v=1+Math.random()*2.4;P.push({x:px,y:py,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:.8,dec:.1,g:.02,c:[255,240,200]})}
+  P.push({x:px,y:py,vx:0,vy:0,life:1,dec:.22,c:[255,255,255],big:1});
+  const t=Date.now();if(t-lastS>45){lastS=t;noise(.05,'highpass',2500,.14,2)}
+}
+function crackle(n,span){for(let i=0;i<n;i++)setTimeout(pop,Math.random()*span)}
+function finale(){
+  stage=3;crackle(70,5200);
+  for(let i=0;i<16;i++)setTimeout(()=>rocket(W*(.08+Math.random()*.84),H*(.08+Math.random()*.38)),i*220+Math.random()*100);
+  [900,1900,2900].forEach((t,i)=>setTimeout(()=>rocket(W*[.25,.5,.75][i],H*.22,undefined,undefined,1),t));
+  setTimeout(()=>[.15,.32,.5,.68,.85].forEach((f,i)=>setTimeout(()=>rocket(W*f,H*(.14+(i%2)*.1),undefined,undefined,1),i*110)),3700);
+  setTimeout(()=>$('t').classList.add('show'),5300);
+  setTimeout(()=>setInterval(()=>{rocket(W*(.1+Math.random()*.8),H*(.1+Math.random()*.3),undefined,undefined,0,1);crackle(6,1500)},2200),7500);
+}
+$('s').addEventListener('pointerdown',e=>{if(stage>=1&&!e.target.closest('.diya,.ck')){rocket(e.clientX,e.clientY);vib([18,8,18])}});
+$('s').addEventListener('pointermove',e=>{
+  if(e.pointerType==='mouse'&&!e.buttons)return;
+  const t=document.elementFromPoint(e.clientX,e.clientY),h=t&&t.closest&&t.closest('.diya');
+  if(h)light(h._d);
+});
+(function loop(){
+  x.globalCompositeOperation='destination-out';x.fillStyle='rgba(0,0,0,.2)';x.fillRect(0,0,W,H);
+  x.globalCompositeOperation='lighter';
+  for(let i=RK.length-1;i>=0;i--){
+    const r=RK[i];r.y+=(r.ty-r.y)*.06-2;r.x+=(r.tx-r.x)*.04;
+    P.push({x:r.x,y:r.y,vx:(Math.random()-.5)*.6,vy:.6,life:.5,dec:.05,c:cols[0]});
+    x.fillStyle='rgb(255,225,160)';x.beginPath();x.arc(r.x,r.y,2.2,0,7);x.fill();
+    if(r.y-r.ty<10){burst(r.x,r.y,r.big,r.q);RK.splice(i,1)}
+  }
+  for(let i=P.length-1;i>=0;i--){
+    const p=P[i];p.vx*=.985;p.vy=p.vy*.985+(p.g??.045);p.x+=p.vx;p.y+=p.vy;p.life-=p.dec;
+    if(p.life<=0){P.splice(i,1);continue}
+    x.fillStyle=`rgba(${p.c[0]},${p.c[1]},${p.c[2]},${p.life})`;
+    x.beginPath();x.arc(p.x,p.y,(p.big?2.6:1.9)*p.life+.4,0,7);x.fill();
+  }
+  requestAnimationFrame(loop);
+})();
+// Walk in
+const cam=$('cam'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function walk(){
+  const T=reduce?1:3800,t0=performance.now();let n=0;
+  (function f(now){
+    const p=Math.min((now-t0)/T,1),e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2,s=.6+.4*e;
+    const bob=Math.abs(Math.sin(p*Math.PI*8))*(1-p)*4;
+    cam.setAttribute('transform',`translate(200 ${560+bob}) scale(${s}) translate(-200 -560)`);
+    const k=Math.floor(p*8);if(k>n&&p<1){n=k;vib([16,6,10]);noise(.12,'lowpass',220,.3,2)}
+    if(p<1)requestAnimationFrame(f);
+    else{cam.removeAttribute('transform');stage=1;document.body.classList.add('st1')}
+  })(t0);
+}
+setTimeout(walk,300);
+</script>
+</body>
+</html>
